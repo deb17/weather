@@ -1,0 +1,47 @@
+body {
+  background-color: #faeee7;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+#load {
+  display: none;
+}
+
+#container {
+  width: 30vw;
+  min-width: 350px;
+  margin: 50px auto;
+}
+
+#input {
+  text-align: center;
+}
+
+#city {
+  width: 250px;
+  height: 30px;
+  font-size: 25px;
+  border: 2px solid gray;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+#submit {
+  width: 80px;
+  height: 30px;
+  color: white;
+  background-color: #0074d9;
+  border-radius: 3px;
+  border: none;
+  font-weight: bold;
+}
+
+#data {
+  display: none;
+}
+
+#daynight {
+  position: relative;
+  top: -15px;
+}

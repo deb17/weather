@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My weather app</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="input">
+        <h2>Weather App</h2>
+        <input type="text" id="city" placeholder="City name" />
+        <br /><br />
+        <button id="submit">Fetch</button>
+        <p id="load"><img src="./img/ajax-loader.gif" alt="loading..." /></p>
+      </div>
+      <br />
+      <div id="data">
+        <h3 id="heading"></h3>
+        <p>
+          <span id="icon"></span>
+          <span id="daynight" title="Day/Night"
+            ><i class="fa fa-sun-o" id="day"></i
+            ><i class="fa fa-moon-o" id="night"></i
+          ></span>
+        </p>
+        <p id="cond"></p>
+        <p>Temperature: <span id="temp"></span> &deg;C</p>
+        <p>Observation time: <span id="observe"></span></p>
+      </div>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>
