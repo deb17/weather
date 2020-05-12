@@ -5,7 +5,6 @@ let currCondUrl = 'https://dataservice.accuweather.com/currentconditions/v1/'
 const process = () => {
   const city = document.getElementById('city').value
   if (city.trim()) {
-    localStorage.setItem('city', city)
     beforeFetch()
     getWeather(city)
   }
@@ -16,7 +15,16 @@ document.getElementById('submit').addEventListener('click', process)
 const getWeather = (city) => {
   fetch(locUrl + city)
     .then((response) => response.json())
-    .then((data) => getCurrCond(data[0].Key, data[0].EnglishName))
+    .then((data) => {
+      if (data[0]) {
+        document.getElementById('error').style.display = 'none'
+        localStorage.setItem('city', data[0].EnglishName)
+        getCurrCond(data[0].Key, data[0].EnglishName)
+      } else {
+        error('Data not found.')
+      }
+    })
+    .catch(() => error('Error fetching data.'))
 }
 
 const getCurrCond = (loc, name) => {
@@ -26,6 +34,7 @@ const getCurrCond = (loc, name) => {
       afterFetch()
       fillData(data, name)
     })
+    .catch(() => error('Error fetching data.'))
 }
 
 const beforeFetch = () => {
@@ -61,6 +70,17 @@ const fillData = (data, name) => {
   img.src = `./img/${icon}-s.png`
   document.getElementById('icon').innerHTML = ''
   document.getElementById('icon').appendChild(img)
+}
+
+const error = (msg) => {
+  document.getElementById('city').removeAttribute('disabled')
+  document.getElementById('submit').removeAttribute('disabled')
+  document.getElementById('data').style.display = 'none'
+  document.getElementById('load').style.display = 'none'
+  const error = document.getElementById('error')
+  error.style.display = 'block'
+  error.innerHTML = `<i>${msg}</i>`
+  localStorage.removeItem('city')
 }
 
 const city = localStorage.getItem('city')

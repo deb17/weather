@@ -45,3 +45,7 @@ body {
   position: relative;
   top: -15px;
 }
+
+#error {
+  display: none;
+}
