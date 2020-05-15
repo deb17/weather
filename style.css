@@ -23,6 +23,12 @@ body {
   margin: 50px auto;
 }
 
+@media (max-width: 576px) {
+  #container {
+    min-height: 60vh;
+  }
+}
+
 #input {
   text-align: center;
 }
